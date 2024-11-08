@@ -49,6 +49,7 @@ def install_software():
     print(github_cli.stdout)
 
 def install_vscode():
+    print('Installing VS Code...')
     vscode_keys = subprocess.run(['bash', """
                                      sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
                                     echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.
