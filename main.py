@@ -63,12 +63,14 @@ def install_vscode():
     print(vscode_keys.stdout + " | " + vscode_install.stdout)
 
 
+
 def flatpak_install():
     print("Installing Flatpak Apps...")
     zen_install = subprocess.run(['bash', "flatpak install flathub io.github.zen_browser.zen"], capture_output=True, text=True)
     dropbox_install = subprocess.run(['bash', "flatpak install flathub com.dropbox.Client"], capture_output=True, text=True)
     github_install = subprocess.run(['bash', 'flatpak install flathub io.github.shiftey.Desktop'], capture_output=True, text=True)
     print(zen_install.stdout + " | " + dropbox_install.stdout + " | " + )github_install.stdout)
+
 
 if __name__ == "__main__":  
     update_system()
