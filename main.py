@@ -56,14 +56,22 @@ def install_vscode():
                                      https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /
                                      etc/yum.repos.d/vscode.repo > /dev/null
                                      """
-                                     ])
+                                     ], capture_output=True, text=True)
     vscode_install = subprocess.run(['bash', """dnf check-update
                                     sudo dnf install code # or code-insiders
-                                    """])                                 
+                                    """],capture_output=True, text=True)                                 
     print(vscode_keys + " | " + vscode_install)
 
+
+def flatpak_install():
+    print("Installing Flatpak Apps...")
+    zen_install = subprocess.run(['bash', "flatpak install flathub io.github.zen_browser.zen"], capture_output=True, text=True)
+    dropbox_install = subprocess.run(['bash', "flatpak install flathub com.dropbox.Client"], capture_output=True, text=True)
+    github_install = subprocess.run(['bash', 'flatpak install flathub io.github.shiftey.Desktop'], capture_output=True, text=True)
+    print(zen_install + " | " + dropbox_install + " | " + )github_install)
 
 if __name__ == "__main__":  
     update_system()
     install_software()
     install_vscode()
+    flatpak_install()
